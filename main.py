@@ -2,6 +2,7 @@ import os
 import glob
 import openpyxl
 from statistics import mean
+from datetime import date, datetime
 
 # Find the first .xlsx file in the current directory
 excel_files = glob.glob("*.xlsx")
@@ -169,6 +170,72 @@ for row in range(
 
 
 print("Total rows:", len(records))
+
+
+# ------------------------------------------------------------
+# DAILY DATE RANGE
+# ------------------------------------------------------------
+
+START_DATE = date(2026, 8, 13)
+TODAY = date.today()
+
+if TODAY < START_DATE:
+    raise ValueError("Today's date is before the dataset start date.")
+
+EXPECTED_DATES = {
+    date.fromordinal(day)
+    for day in range(
+        START_DATE.toordinal(),
+        TODAY.toordinal() + 1
+    )
+}
+
+
+def record_date(value):
+
+    if isinstance(value, datetime):
+        return value.date()
+
+    if isinstance(value, date):
+        return value
+
+    return None
+
+
+record_dates = [
+    record_date(record["Date"])
+    for record in records
+]
+
+duplicate_dates = {
+    current_date
+    for current_date in record_dates
+    if current_date is not None
+    and record_dates.count(current_date) > 1
+}
+
+missing_dates = sorted(
+    EXPECTED_DATES - set(record_dates)
+)
+
+out_of_range_dates = sorted(
+    current_date
+    for current_date in record_dates
+    if current_date is not None
+    and current_date not in EXPECTED_DATES
+)
+
+if duplicate_dates:
+    raise ValueError(
+        "Duplicate dates found: "
+        + ", ".join(str(current_date) for current_date in sorted(duplicate_dates))
+    )
+
+if out_of_range_dates:
+    raise ValueError(
+        "Dates outside the expected range found: "
+        + ", ".join(str(current_date) for current_date in out_of_range_dates)
+    )
 
 
 # ------------------------------------------------------------
@@ -729,13 +796,20 @@ print(
 )
 
 print(
+    "Date range:",
+    START_DATE,
+    "to",
+    TODAY
+)
+
+print(
     "Valid days:",
     len(valid_records)
 )
 
 print(
     "Missing days:",
-    EXPECTED_DAYS - len(valid_records)
+    len(missing_dates)
 )
 
 print(
