@@ -1,4 +1,4 @@
-# Study Time Analysis
+# Personal Activity Intelligence Report
 
 This project analyses a personal daily activity log for the CAP776 **My Data, My Story** assignment.
 
