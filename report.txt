@@ -1,0 +1,59 @@
+Using file: 12603926.xlsx
+Libraries imported successfully
+Excel file opened successfully
+Sheet: Daily Log
+Header row: 5
+Total rows: 40
+Valid records: 40
+Invalid records: 0
+
+
+============================================================
+CAP776 - MY DATA, MY STORY
+PERSONAL ACTIVITY INTELLIGENCE REPORT
+============================================================
+
+DATA SUMMARY
+------------------------------------------------------------
+Expected days: 40
+Valid days: 40
+Missing days: 0
+Invalid records: 0
+
+AVERAGE DAILY ACTIVITY
+------------------------------------------------------------
+Sleep: 405 minutes
+Fitness: 34.75 minutes
+Study: 226.88 minutes
+Coding: 68.5 minutes
+Class: 177.5 minutes
+Other Activities: 105.75 minutes
+Free / Unaccounted: 421.62 minutes
+
+INDEX RESULTS
+------------------------------------------------------------
+PAI: 335.44
+TPI: 68.5
+AAI: 404.38
+PhAI: 34.75
+SRI: 405
+ABI: 421.62
+TUI: 1018.38
+EI: 3.21
+DCI: 100.0 %
+
+RELATIONSHIP ANALYSIS
+------------------------------------------------------------
+
+Sleep ↔ Energy: 0.666
+Moderate positive relationship
+
+Study ↔ Satisfaction: 0.041
+Very weak or no clear relationship
+
+Coding ↔ Energy: 0.095
+Very weak or no clear relationship
+
+============================================================
+PROJECT COMPLETED SUCCESSFULLY
+============================================================
