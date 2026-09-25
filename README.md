@@ -10,7 +10,7 @@ This project analyses a personal daily activity log for the CAP776 **My Data, My
 
 ## Dataset period
 
-The dataset records daily activity information from **13 August 2026** through the current submission period. It includes sleep, fitness, study, coding, class time, other activities, mood, satisfaction, and energy levels.
+The dataset records daily activity information from **13 August 2026 through today**. The Python program calculates the expected number of days dynamically, checks for duplicate or out-of-range dates, and reports any missing daily entries. It includes sleep, fitness, study, coding, class time, other activities, mood, satisfaction, and energy levels.
 
 ## Requirements
 
